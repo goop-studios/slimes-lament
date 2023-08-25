@@ -1,6 +1,6 @@
 # what is the game?
 
-### ideas
+### ideas <!-- trunk-ignore(markdownlint/MD001) -->
 
 - rpg
 - pixel
