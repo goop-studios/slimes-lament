@@ -25,6 +25,14 @@ fn greet_people(query: Query<&Name, With<Person>>) {
 
 fn main() -> Result<()> {
     App::new()
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                resolution: (128.0, 128.0).into(),
+                title: "Game".to_string(),
+                ..default()
+            }),
+            ..default()
+        }))
         .add_systems(Startup, add_people)
         .add_systems(Update, (hello_world, greet_people))
         .run();

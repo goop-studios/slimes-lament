@@ -3,19 +3,20 @@ with import <nixpkgs> {};
 let
   pkgs = import <nixpkgs> {};
 in
-mkShell {
+mkShell rec {
   allowUnfree = true;
   name = "game";
   nativeBuildInputs = with pkgs; [
-    rustup pkgconfig lld_16
+    pkg-config
   ];
   buildInputs = with pkgs; [
-    alsa-lib libudev-zero
+    udev alsa-lib vulkan-loader
+    xorg.libX11 xorg.libXcursor xorg.libXi xorg.libXrandr # To use the x11 feature
+    libxkbcommon wayland # To use the wayland feature
   ];
-  LD_LIBRARY_PATH = lib.makeLibraryPath [ alsa-lib ];
+  LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
   packages = with pkgs; [
     zsh
-    trunk-io
   ];
   shellHook = ''
     echo "Welcome to h4rl's nix-shell :)"
