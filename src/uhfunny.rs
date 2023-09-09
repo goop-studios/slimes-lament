@@ -1,4 +1,4 @@
-use std::io::{self, BufRead};
+use std::io::{self, stdin, BufRead};
 
 /// Checks if a given phone is an Android phone with Google services enabled
 /// and returns a boolean value indicating whether there are games on the phone or not.
@@ -43,8 +43,7 @@ fn main() {
 }
 
 fn read_input() -> io::Result<String> {
-    let stdin = io::stdin();
-    let mut stdin = stdin.lock();
+    let mut stdin = stdin().lock();
     let mut input = String::new();
     stdin.read_line(&mut input)?;
     Ok(input)
