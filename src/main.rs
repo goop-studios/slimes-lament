@@ -1,40 +1,27 @@
 use anyhow::Result;
 use bevy::prelude::*;
 
-#[derive(Component)]
-struct Person;
+mod components;
+use components::movement::{movement, Player};
 
-#[derive(Component)]
-struct Name(String);
-
-fn add_people(mut commands: Commands) {
-    commands.spawn((Person, Name("Elaina Proctor".to_string())));
-    commands.spawn((Person, Name("Renzo Hume".to_string())));
-    commands.spawn((Person, Name("Zayna Nieves".to_string())));
-}
-
-fn hello_world() {
-    println!("Hello, World!");
-}
-
-fn greet_people(query: Query<&Name, With<Person>>) {
-    for name in &query {
-        println!("Hello, {}!", name.0);
-    }
+fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
+    commands.spawn(Camera2dBundle::default());
+    commands.spawn((
+        SpriteBundle {
+            texture: asset_server.load("sprites/static/gum.png"),
+            transform: Transform::from_xyz(32., 0., 0.),
+            ..default()
+        },
+        Player,
+    ));
 }
 
 fn main() -> Result<()> {
     App::new()
-        .add_plugins(DefaultPlugins.set(WindowPlugin {
-            primary_window: Some(Window {
-                resolution: (128.0, 128.0).into(),
-                title: "Game".to_string(),
-                ..default()
-            }),
-            ..default()
-        }))
-        .add_systems(Startup, add_people)
-        .add_systems(Update, (hello_world, greet_people))
+        .add_plugins(DefaultPlugins)
+        .insert_resource(FixedTime::new_from_secs(1.0 / 60.0))
+        .add_systems(Startup, setup)
+        .add_systems(Update, (movement, bevy::window::close_on_esc))
         .run();
     Ok(())
 }
