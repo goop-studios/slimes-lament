@@ -3,13 +3,14 @@
 ### ideas <!-- trunk-ignore(markdownlint/MD001) -->
 
 - rpg
-- pixel
-- mmo
+- voxel
+- soulslike
+- multiplayer (maybe?)
 
 ### tools?
 
 - rust
-- bevy
+- godot 3.5
 -
 
 ### dependencies
