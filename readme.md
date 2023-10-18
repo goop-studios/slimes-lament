@@ -11,7 +11,7 @@
 
 - rust
 - godot 3.5
--
+- magicavoxel
 
 ### dependencies
 
