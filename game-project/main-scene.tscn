@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Slime.tres" type="ArrayMesh" id=1]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_sky_orientation = Basis( 0.315, 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019716, 0, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="Slime" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999764, -0.0217102, 0, 0.0217102, 0.999764, 0.150172, 0.151188, -0.169755 )
+mesh = ExtResource( 1 )
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0737, 5.49977, 0.992319 )
+debug_shape_custom_color = Color( 0.980392, 0, 0, 1 )
