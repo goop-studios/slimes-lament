@@ -1,8 +1,3 @@
-# what is the game?
-
-### ideas <!-- trunk-ignore(markdownlint/MD001) -->
-
-- rpg
 - voxel
 - soulslike
 - multiplayer (maybe?)
