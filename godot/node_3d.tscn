@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_ovga8"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nwftc"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0pv1"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jocqm"]
+[sub_resource type="BoxMesh" id="BoxMesh_ibcg1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vipi4"]
 
@@ -32,10 +32,10 @@ script = ExtResource("1_ovga8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 visible = false
-shape = SubResource("CapsuleShape3D_nwftc")
+shape = SubResource("BoxShape3D_b0pv1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("CapsuleMesh_jocqm")
+mesh = SubResource("BoxMesh_ibcg1")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.992968, 0.118387, 0, -0.118387, 0.992968, 0, 1.0532, 2.01202)
@@ -46,7 +46,7 @@ fov = 68.3749
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -10, 0)
 shape = SubResource("BoxShape3D_vipi4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D/CollisionShape3D"]
