@@ -1,14 +1,15 @@
+### Genre
 - voxel
 - soulslike
 - multiplayer (maybe?)
 
-### tools?
+### Tools?
 
 - rust
-- godot 3.5
-- magicavoxel
+- godot 4.2
+- goxel
 
-### dependencies
+### Dependencies
 
 - rust
 - cargo
