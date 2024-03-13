@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxhiu2sm1h6xo"]
+
+[ext_resource type="PackedScene" uid="uid://cbeddgybt0qp4" path="res://Player.tscn" id="1_g8bx2"]
+[ext_resource type="PackedScene" uid="uid://cjo11yv2pwm57" path="res://Landscape.glb" id="3_31u25"]
+[ext_resource type="Script" path="res://UI.gd" id="4_7au1e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o6a4f"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_l70dg"]
+sky_material = SubResource("ProceduralSkyMaterial_o6a4f")
+
+[sub_resource type="Environment" id="Environment_3ow66"]
+background_mode = 2
+sky = SubResource("Sky_l70dg")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Canvas" type="CanvasLayer"]
+
+[node name="Game3D" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Game3D"]
+environment = SubResource("Environment_3ow66")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Game3D"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" parent="Game3D" instance=ExtResource("1_g8bx2")]
+minPitch = -60.0
+maxPitch = 20.0
+gravity = -50
+
+[node name="Landscape" parent="Game3D" instance=ExtResource("3_31u25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.779, -103.443, 76.901)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.088
+anchor_bottom = 0.054
+offset_left = 6.0
+offset_top = 4.0
+offset_right = -36.376
+offset_bottom = 17.008
+script = ExtResource("4_7au1e")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="test button" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Test Button"
+
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/test button" to="UI" method="_on_test_button_pressed"]

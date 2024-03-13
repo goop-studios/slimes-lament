@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbeddgybt0qp4"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_1m726"]
+[ext_resource type="PackedScene" uid="uid://c64ic42vsnmf5" path="res://Slimy Boy.glb" id="2_i5dh6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sfk0m"]
+height = 0.820721
+radius = 0.490612
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0177487, 0)
+input_ray_pickable = false
+script = ExtResource("1_1m726")
+speed = 10.0
+turnSpeed = 0.005
+pitchSpeed = 0.005
+jump_force = 20
+gravity = -50.0
+
+[node name="Slimy Boy2" parent="." instance=ExtResource("2_i5dh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101861, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422891, 0)
+shape = SubResource("CylinderShape3D_sfk0m")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.485587)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.884288, 0.466942, 0, -0.466942, 0.884288, 0, 2.71661, 2.40875)

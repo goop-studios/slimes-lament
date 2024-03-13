@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxhiu2sm1h6xo"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_4l4wh"]
+[ext_resource type="PackedScene" uid="uid://c64ic42vsnmf5" path="res://Slimy Boy.glb" id="2_aniva"]
+[ext_resource type="PackedScene" uid="uid://cjo11yv2pwm57" path="res://Landscape.glb" id="3_31u25"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o6a4f"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_l70dg"]
+sky_material = SubResource("ProceduralSkyMaterial_o6a4f")
+
+[sub_resource type="Environment" id="Environment_3ow66"]
+background_mode = 2
+sky = SubResource("Sky_l70dg")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sfk0m"]
+height = 0.820721
+radius = 0.490612
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3ow66")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0177487, 0)
+input_ray_pickable = false
+script = ExtResource("1_4l4wh")
+speed = 10.0
+turnSpeed = 0.005
+pitchSpeed = 0.005
+jump_force = 20
+gravity = -50.0
+
+[node name="Slimy Boy2" parent="CharacterBody3D" instance=ExtResource("2_aniva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101861, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422891, 0)
+shape = SubResource("CylinderShape3D_sfk0m")
+
+[node name="Node3D" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.485587)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.884288, 0.466942, 0, -0.466942, 0.884288, 0, 2.71661, 2.40875)
+
+[node name="Landscape" parent="." instance=ExtResource("3_31u25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.779, -103.443, 76.901)
