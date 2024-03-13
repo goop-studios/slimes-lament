@@ -11,11 +11,6 @@ radius = 0.490612
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0177487, 0)
 input_ray_pickable = false
 script = ExtResource("1_1m726")
-speed = 10.0
-turnSpeed = 0.005
-pitchSpeed = 0.005
-jump_force = 20
-gravity = -50.0
 
 [node name="Slimy Boy2" parent="." instance=ExtResource("2_i5dh6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101861, 0)

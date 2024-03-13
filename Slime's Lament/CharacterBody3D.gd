@@ -18,8 +18,9 @@ var jump = "jump"
 
 var camera = null
 
+var allow_camera_rotation = true
+
 func _ready():
-	# Ensure the input actions are defined in the project settings
 	#InputMap.add_action(move_forward)
 	#InputMap.add_action(move_backward)
 	#InputMap.add_action(move_left)
@@ -32,8 +33,10 @@ func _ready():
 func toggle_mouse_capture():
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		allow_camera_rotation = true
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		allow_camera_rotation = false
 
 func _physics_process(delta):
 	# Reset the velocity
@@ -42,16 +45,12 @@ func _physics_process(delta):
 	# Horizontal movement
 	var move_direction = Vector3()
 	if Input.is_action_pressed(move_forward):
-		#print("w")
 		move_direction -= transform.basis.z
 	if Input.is_action_pressed(move_backward):
-		#print("s")
 		move_direction += transform.basis.z
 	if Input.is_action_pressed(move_left):
-		#print("a")
 		move_direction -= transform.basis.x
 	if Input.is_action_pressed(move_right):
-		#print("d")
 		move_direction += transform.basis.x
 
 	# Normalize the move direction vector to ensure consistent speed
@@ -65,25 +64,25 @@ func _physics_process(delta):
 	# Jumping
 	if Input.is_action_just_pressed(jump) and is_on_floor():
 		velocity.y = jump_force
-		
+	
 	move_and_slide()
 	#move_and_collide()
 	
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and allow_camera_rotation:
 		var delta = event.relative
 		var yRotation = delta.x * -turnSpeed
 		var xRotation = delta.y * -pitchSpeed
-		
+	
 		# Calculate the new pitch angle
 		var newPitchAngle = camera.rotation_degrees.x + xRotation
-		
+	
 		# Clamp the pitch angle
 		var clampedPitchAngle = clamp(newPitchAngle, minPitch, maxPitch)
-		
+	
 		# Apply the clamped pitch angle
 		camera.rotation_degrees.x = clampedPitchAngle
-		
+	
 		# Apply the y-axis rotation
 		rotate_y(yRotation)
 		camera.rotate_x(xRotation)

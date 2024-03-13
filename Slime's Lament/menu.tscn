@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7lq6lgkg7u5t"]
+[gd_scene load_steps=3 format=3 uid="uid://c7lq6lgkg7u5t"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_e3e6h"]
+[ext_resource type="Texture2D" uid="uid://7vug83ikr455" path="res://testscene/game_logo_purple.svg" id="2_6sgap"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,10 +12,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e3e6h")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 242.0
+offset_top = 42.0
+offset_right = 906.0
+offset_bottom = 416.0
+texture = ExtResource("2_6sgap")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.319
+anchor_top = 0.711
+anchor_right = 0.681
+anchor_bottom = 0.872
+offset_left = 0.511993
+offset_top = 0.271973
+offset_right = -0.512085
+offset_bottom = -0.0560303
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

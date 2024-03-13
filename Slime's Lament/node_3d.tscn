@@ -31,7 +31,6 @@ shadow_enabled = true
 [node name="CharacterBody3D" parent="Game3D" instance=ExtResource("1_g8bx2")]
 minPitch = -60.0
 maxPitch = 20.0
-gravity = -50
 
 [node name="Landscape" parent="Game3D" instance=ExtResource("3_31u25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.779, -103.443, 76.901)
