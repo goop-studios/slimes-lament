@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7lq6lgkg7u5t"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_e3e6h"]
-[ext_resource type="Texture2D" uid="uid://7vug83ikr455" path="res://testscene/game_logo_purple.svg" id="2_6sgap"]
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_va487"]
+[ext_resource type="Texture2D" uid="uid://7vug83ikr455" path="res://testscene/game_logo_purple.svg" id="2_4drix"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e3e6h")
+script = ExtResource("1_va487")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -18,7 +18,7 @@ offset_left = 242.0
 offset_top = 42.0
 offset_right = 906.0
 offset_bottom = 416.0
-texture = ExtResource("2_6sgap")
+texture = ExtResource("2_4drix")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

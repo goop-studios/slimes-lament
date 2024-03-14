@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfhbfl6xpcx2"]
+
+[ext_resource type="Script" path="res://scripts/skeletona.gd" id="1_iw5p4"]
+[ext_resource type="PackedScene" uid="uid://6viiu5fb25xr" path="res://assets/sprites/static/skeletona.glb" id="1_tgbwx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j046d"]
+height = 1.69123
+
+[node name="Skeletona" type="CharacterBody3D"]
+script = ExtResource("1_iw5p4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0460815, 0.861328, 0.422478)
+shape = SubResource("CapsuleShape3D_j046d")
+
+[node name="visuals" type="Node3D" parent="."]
+
+[node name="skeletona2" parent="visuals" instance=ExtResource("1_tgbwx")]

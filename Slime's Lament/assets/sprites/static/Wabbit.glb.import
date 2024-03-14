@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6viiu5fb25xr"
-path="res://.godot/imported/skeletona.glb-85909f98ec211ec734b42dedd8450628.scn"
+uid="uid://bcbaomxegpbc3"
+path="res://.godot/imported/Wabbit.glb-5904ae274d8822bcfc05abd454c9f1df.scn"
 
 [deps]
 
-source_file="res://skeletona.glb"
-dest_files=["res://.godot/imported/skeletona.glb-85909f98ec211ec734b42dedd8450628.scn"]
+source_file="res://assets/sprites/static/Wabbit.glb"
+dest_files=["res://.godot/imported/Wabbit.glb-5904ae274d8822bcfc05abd454c9f1df.scn"]
 
 [params]
 

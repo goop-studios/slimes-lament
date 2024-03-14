@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c64ic42vsnmf5"
-path="res://.godot/imported/Slimy Boy.glb-16d9257b929b8ccbed800f1c9132a333.scn"
+uid="uid://bp3ubasbb3g50"
+path="res://.godot/imported/Zomboy.glb-00c6b72d11158c64cfcabab766419fbd.scn"
 
 [deps]
 
-source_file="res://Slimy Boy.glb"
-dest_files=["res://.godot/imported/Slimy Boy.glb-16d9257b929b8ccbed800f1c9132a333.scn"]
+source_file="res://assets/sprites/static/Zomboy.glb"
+dest_files=["res://.godot/imported/Zomboy.glb-00c6b72d11158c64cfcabab766419fbd.scn"]
 
 [params]
 

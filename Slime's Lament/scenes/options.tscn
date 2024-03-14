@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dmxh4pq4gd8s0"]
 
-[ext_resource type="Script" path="res://options.gd" id="1_yhnii"]
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_wr5fc"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yhnii")
+script = ExtResource("1_wr5fc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
