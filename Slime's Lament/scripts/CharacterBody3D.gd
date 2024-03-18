@@ -1,6 +1,7 @@
 extends CharacterBody3D
+class_name Player
 
-@onready var camera_pivot = $CameraPivot
+@onready var camera_pivot: Node3D = $CameraPivot
 @onready var visuals = $visuals
 
 # Movement variables
@@ -87,4 +88,6 @@ func _input(event):
 	if event.is_action_pressed("open_UI"):
 		toggle_mouse_capture()
 
+func take_damage(dmg: float):
+	print("player took ", dmg, " damage")
 	

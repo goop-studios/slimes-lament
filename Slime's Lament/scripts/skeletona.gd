@@ -1,35 +1,46 @@
 extends CharacterBody3D
 
+# Enemy properties
+@export var speed = 50.0
+@export var attack_range = 2.0
+@export var attack_delay = 0.7
+@export var turn_speed = 1.0
+var attack_timer: Timer = null
+
+# Reference to the player
+@onready var player: Player =  %Game3D/CharacterBody3D
+
+func _ready():
+	# Initialize the attack timer
+	attack_timer = Timer.new()
+	attack_timer.set_one_shot(false)
+	attack_timer.set_wait_time(attack_delay)
+	add_child(attack_timer)
+	attack_timer.timeout.connect(_on_attack_timer_timeout)
+
+func _process(delta):
+	# Check if the player is within the attack range
+
+	var direction: Vector3 = (player.position - position).normalized()
+	var angle:float = (-basis.z).signed_angle_to(direction, Vector3.UP)
+	var turn_speed_eval = turn_speed * sign(angle) * delta
+	rotate_y(turn_speed_eval)
 
 
-
-#this is not edited at all, its just the basic built in CharacterBody3D node script
-
-
-
-
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
-
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	if player and position.distance_to(player.position) <= attack_range:
+		# Start the attack timer
+		#print("player in range")
+		if attack_timer.is_stopped():
+			attack_timer.start()
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		attack_timer.stop()
+		# Move towards the player
+		velocity = direction * speed*delta
+		#print("skel vel: ", velocity, ", angle: ", angle)
+		move_and_slide()
 
-	move_and_slide()
+func _on_attack_timer_timeout():
+	# Attack the player
+	print("Attacking player!")
+	player.take_damage(1.0)
+	# Implement your attack logic here

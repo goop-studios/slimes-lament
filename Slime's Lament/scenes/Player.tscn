@@ -13,6 +13,8 @@ input_ray_pickable = false
 script = ExtResource("1_1m726")
 sens_horizontal = 0.3
 sens_vertical = 0.3
+walking_speed = 5.0
+running_speed = 10.0
 maxPitch = 45.0
 minPitch = -35.0
 
