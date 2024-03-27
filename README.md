@@ -38,4 +38,6 @@ This is where all the files for the game is hosted, although there will be no bu
 - [ ] : Attack
 - [ ] : Animations
 
-![Goop Studios Logo](https://raw.githubusercontent.com/goop-studios/.github/main/resources/big_icon_green.png)
+<a href="https://goop-studios.monster" target="_blank">
+  <img src="https://raw.githubusercontent.com/goop-studios/.github/main/resources/big_icon_green.png" alt="Goop Studios Logo" /> 
+</a>
