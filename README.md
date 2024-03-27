@@ -30,12 +30,12 @@ This is where all the files for the game is hosted, although there will be no bu
 
 ## Todo
 
-- [x]: Basic Movement and Physics.
-- [x]: Basic Collision with the world. 
-- [x]: Basic Enemy AI
-- [ ]: GUI
-- [ ]: Pause Menu
-- [ ]: Attack
-- [ ]: Animations
+- [x] : Basic Movement and Physics.
+- [x] : Basic Collision with the world. 
+- [x] : Basic Enemy AI
+- [ ] : GUI
+- [ ] : Pause Menu
+- [ ] : Attack
+- [ ] : Animations
 
 ![Goop Studios Logo](https://raw.githubusercontent.com/goop-studios/.github/main/resources/big_icon_green.png)
