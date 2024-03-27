@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var attack_delay = 0.7
 @export var turn_speed = 1.0
 var attack_timer: Timer = null
+var gravity = -50
 
 # Reference to the player
 @onready var player: Player =  %Game3D/CharacterBody3D
@@ -20,7 +21,6 @@ func _ready():
 
 func _process(delta):
 	# Check if the player is within the attack range
-
 	var direction: Vector3 = (player.position - position).normalized()
 	var angle:float = (-basis.z).signed_angle_to(direction, Vector3.UP)
 	var turn_speed_eval = turn_speed * sign(angle) * delta

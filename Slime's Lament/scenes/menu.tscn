@@ -1,9 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7lq6lgkg7u5t"]
+[gd_scene load_steps=5 format=3 uid="uid://c7lq6lgkg7u5t"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_va487"]
 [ext_resource type="Texture2D" uid="uid://7vug83ikr455" path="res://testscene/game_logo_purple.svg" id="2_4drix"]
 
-[node name="Menu" type="Control"]
+[sub_resource type="Animation" id="Animation_0dm1x"]
+resource_name = "Main_Menu_Logo"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rejy0"]
+_data = {
+"Main_Menu_Logo": SubResource("Animation_0dm1x")
+}
+
+[node name="Camera2D" type="Camera2D"]
+anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_4drix")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_rejy0")
+}
+
+[node name="Menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,16 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_va487")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 242.0
-offset_top = 42.0
-offset_right = 906.0
-offset_bottom = 416.0
-texture = ExtResource("2_4drix")
-expand_mode = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.319
@@ -35,21 +58,21 @@ offset_bottom = -0.0560303
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu/MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
-[node name="Options (placeholder)" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options (placeholder)" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options (placeholder)"
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit Game"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options (placeholder)" to="." method="_on_options_placeholder_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/Play" to="CanvasLayer/Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/Options (placeholder)" to="CanvasLayer/Menu" method="_on_options_placeholder_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/Exit" to="CanvasLayer/Menu" method="_on_exit_pressed"]
