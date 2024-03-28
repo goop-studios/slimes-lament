@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dte6rww326h5b"]
+
+[ext_resource type="Script" path="res://scripts/Respawn.gd" id="1_5ucuu"]
+
+[node name="Camera2D" type="Camera2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Respawn" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5ucuu")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Respawn"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 271.0
+offset_right = 517.0
+offset_bottom = 337.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Respawn/MarginContainer"]
+layout_mode = 2
+
+[node name="Respawn" type="Button" parent="CanvasLayer/Respawn/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Respawn
+"
+
+[node name="Return To Title" type="Button" parent="CanvasLayer/Respawn/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Return To Titlescreen"

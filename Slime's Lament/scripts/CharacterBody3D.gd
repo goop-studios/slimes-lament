@@ -32,10 +32,10 @@ func _ready():
 func toggle_mouse_capture():
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		allow_camera_rotation = true
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		allow_camera_rotation = false
+		
+	allow_camera_rotation = !allow_camera_rotation
 
 # Running/walking
 func _physics_process(delta):
@@ -95,3 +95,4 @@ func take_damage(dmg: float):
 	if health <= 0:
 		print("player died")
 		queue_free()
+		get_tree().change_scene_to_file("res://scenes/respawn.tscn")

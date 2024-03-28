@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_va487"]
 [ext_resource type="Texture2D" uid="uid://7vug83ikr455" path="res://testscene/game_logo_purple.svg" id="2_4drix"]
 
+[sub_resource type="Theme" id="Theme_ver5k"]
+
 [sub_resource type="Animation" id="Animation_0dm1x"]
 resource_name = "Main_Menu_Logo"
 loop_mode = 1
@@ -12,35 +14,11 @@ _data = {
 "Main_Menu_Logo": SubResource("Animation_0dm1x")
 }
 
-[sub_resource type="Theme" id="Theme_ver5k"]
-
 [node name="Camera2D" type="Camera2D"]
 anchor_mode = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 434.465
-offset_top = 164.0
-offset_right = 434.468
-offset_bottom = 164.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("2_4drix")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect"]
-libraries = {
-"": SubResource("AnimationLibrary_rejy0")
-}
 
 [node name="Menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -79,6 +57,29 @@ text = "Options (placeholder)"
 [node name="Exit" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit Game"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 434.465
+offset_top = 164.0
+offset_right = 434.468
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_4drix")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Menu/TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_rejy0")
+}
 
 [connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/Play" to="CanvasLayer/Menu" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/Options (placeholder)" to="CanvasLayer/Menu" method="_on_options_placeholder_pressed"]

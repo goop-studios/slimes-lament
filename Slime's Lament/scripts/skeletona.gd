@@ -5,11 +5,13 @@ extends CharacterBody3D
 @export var attack_range = 2.0
 @export var attack_delay = 0.7
 @export var turn_speed = 1.0
+@export var enemy_damage = 10.0
 var attack_timer: Timer = null
 var gravity = -50
 
 # Reference to the player
 @onready var player: Player =  %Game3D/CharacterBody3D
+
 
 func _ready():
 	# Initialize the attack timer
@@ -20,14 +22,12 @@ func _ready():
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 
 func _process(delta):
-	# Check if the player is within the attack range
+	
 	if player == null:
 		return
-	velocity.y += gravity * delta
-	var direction: Vector3
-	if player.position:
-		direction = (player.position - position).normalized()
-	var angle:float = (-basis.z).signed_angle_to(direction, Vector3.UP)
+	# Check if the player is within the attack range
+	var direction: Vector3 = (player.position - position).normalized()
+	var angle: float = (-basis.z).signed_angle_to(direction, Vector3.UP)
 	var turn_speed_eval = turn_speed * sign(angle) * delta
 	rotate_y(turn_speed_eval)
 
@@ -40,7 +40,8 @@ func _process(delta):
 	else:
 		attack_timer.stop()
 		# Move towards the player
-		velocity = direction * speed*delta
+		velocity = direction * speed * delta
+		velocity.y = gravity * delta
 		#print("skel vel: ", velocity, ", angle: ", angle)
 		move_and_slide()
 
@@ -50,5 +51,5 @@ func _on_attack_timer_timeout():
 	# Attack the player
 	print("Attacking player!")
 	if player.health > 0:
-		player.take_damage(1.0)
+		player.take_damage(enemy_damage)
 	# Implement your attack logic here

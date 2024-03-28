@@ -8,6 +8,8 @@ height = 1.69123
 
 [node name="Skeletona" type="CharacterBody3D"]
 script = ExtResource("1_iw5p4")
+speed = 100.0
+turn_speed = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0460815, 0.861328, 0.422478)
