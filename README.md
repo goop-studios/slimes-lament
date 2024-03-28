@@ -24,7 +24,7 @@
   </a>
 </div>
 
-## Welcome to the official game repo of Slime's Lament.
+## :bowtie: Welcome to the official game repo of Slime's Lament.
 
 This is where all the files for the game is hosted, although there will be no build instructions.
 
