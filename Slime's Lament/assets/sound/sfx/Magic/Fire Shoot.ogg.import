@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://davyy0v7eb0hg"
-path="res://.godot/imported/Fire Shoot.ogg-61b8399a96252240a4fadcaa98fbb9c7.oggvorbisstr"
+path="res://.godot/imported/Fire Shoot.ogg-8e067167b9babbf6fd2328d90f6062ef.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/Attacks/Magic/Fire Shoot.ogg"
-dest_files=["res://.godot/imported/Fire Shoot.ogg-61b8399a96252240a4fadcaa98fbb9c7.oggvorbisstr"]
+source_file="res://assets/sound/sfx/Magic/Fire Shoot.ogg"
+dest_files=["res://.godot/imported/Fire Shoot.ogg-8e067167b9babbf6fd2328d90f6062ef.oggvorbisstr"]
 
 [params]
 

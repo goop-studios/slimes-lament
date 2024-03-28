@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7lq6lgkg7u5t"]
+[gd_scene load_steps=6 format=3 uid="uid://c7lq6lgkg7u5t"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_va487"]
 [ext_resource type="Texture2D" uid="uid://7vug83ikr455" path="res://testscene/game_logo_purple.svg" id="2_4drix"]
@@ -12,6 +12,8 @@ _data = {
 "Main_Menu_Logo": SubResource("Animation_0dm1x")
 }
 
+[sub_resource type="Theme" id="Theme_ver5k"]
+
 [node name="Camera2D" type="Camera2D"]
 anchor_mode = 0
 
@@ -22,8 +24,13 @@ follow_viewport_enabled = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 434.465
+offset_top = 164.0
+offset_right = 434.468
+offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_4drix")
@@ -47,19 +54,19 @@ script = ExtResource("1_va487")
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Menu"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.319
+anchor_left = 0.274
 anchor_top = 0.711
 anchor_right = 0.681
-anchor_bottom = 0.872
-offset_left = 0.511993
-offset_top = 0.271973
+anchor_bottom = 0.807
+offset_top = -9.88
 offset_right = -0.512085
-offset_bottom = -0.0560303
+offset_bottom = -12.56
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu/MarginContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ver5k")
 
 [node name="Play" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2

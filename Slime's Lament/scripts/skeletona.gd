@@ -21,7 +21,12 @@ func _ready():
 
 func _process(delta):
 	# Check if the player is within the attack range
-	var direction: Vector3 = (player.position - position).normalized()
+	if player == null:
+		return
+	velocity.y += gravity * delta
+	var direction: Vector3
+	if player.position:
+		direction = (player.position - position).normalized()
 	var angle:float = (-basis.z).signed_angle_to(direction, Vector3.UP)
 	var turn_speed_eval = turn_speed * sign(angle) * delta
 	rotate_y(turn_speed_eval)
@@ -40,7 +45,10 @@ func _process(delta):
 		move_and_slide()
 
 func _on_attack_timer_timeout():
+	if player == null:
+		return
 	# Attack the player
 	print("Attacking player!")
-	player.take_damage(1.0)
+	if player.health > 0:
+		player.take_damage(1.0)
 	# Implement your attack logic here
