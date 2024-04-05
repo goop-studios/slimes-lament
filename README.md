@@ -37,6 +37,8 @@ This is where all the files for the game is hosted, although there will be no bu
 - [ ] : Pause Menu
 - [ ] : Attack
 - [ ] : Animations
+- [ ] : Proper Combat System
+- [ ] : Proper Enemy AI
 
 <a href="https://goop-studios.monster" target="_blank">
   <img src="https://raw.githubusercontent.com/goop-studios/.github/main/resources/big_icon_green.png" alt="Goop Studios Logo" /> 
