@@ -31,3 +31,6 @@ text = "Respawn
 [node name="Return To Title" type="Button" parent="CanvasLayer/Respawn/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Return To Titlescreen"
+
+[connection signal="pressed" from="CanvasLayer/Respawn/MarginContainer/VBoxContainer/Respawn" to="CanvasLayer/Respawn" method="_on_respawn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Respawn/MarginContainer/VBoxContainer/Return To Title" to="CanvasLayer/Respawn" method="_on_return_to_title_pressed"]
